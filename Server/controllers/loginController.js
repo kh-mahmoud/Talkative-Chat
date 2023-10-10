@@ -38,7 +38,7 @@ export const loginUser=async(req,res)=>
     res.cookie('token', generateToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        domain: '.netlify.app',
+        domain: 'talkative12.netlify.app',
         path: '/',
         sameSite: 'None', // Allow cross-site access
     });
@@ -46,7 +46,7 @@ export const loginUser=async(req,res)=>
     res.cookie('refreshToken', generateRefreshToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        domain: '.netlify.app',
+        domain: 'talkative12.netlify.app',
         path: '/',
         sameSite: 'None', // Allow cross-site access
    
