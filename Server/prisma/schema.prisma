@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model chat {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  isGroupe Boolean @default(false)
+
+  members  user[]   @relation("member", fields: [memberId], references: [id])
+  memberId String[] @db.ObjectId
+
+  groupeadmin user[]   @relation("admin", fields: [adminId], references: [id])
+  adminId     String[] @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  message message[]
+
+  latestmessage message? @relation("latestmessage")
+}
+
+model user {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String @unique
+  password String
+  pic      String @default("https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg")
+
+  chat   chat[]   @relation("member", fields: [chatId], references: [id])
+  chatId String[] @db.ObjectId
+
+  chatadmin   chat[]   @relation("admin", fields: [chatadminId], references: [id])
+  chatadminId String[] @db.ObjectId
+
+  message message[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model message {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  sender user   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+
+  content String
+
+  chat   chat   @relation(fields: [chatId], references: [id])
+  chatId String @unique @db.ObjectId
+
+  chatAsLatestMessage   chat?   @relation("latestmessage", fields: [chatAsLatestMessageId], references: [id])
+  chatAsLatestMessageId String? @unique @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

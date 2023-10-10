@@ -1,0 +1,1 @@
+export const domain =import.meta.env.VITE_NODE_ENV === 'production'?"https://talkattive-chat.onrender.com":"http://localhost:3000"

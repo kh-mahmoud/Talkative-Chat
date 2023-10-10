@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
+
+.app
+{
+
+  background-image: url("./assets/background.png");
+  background-size: cover;
+  object-fit: cover;
+  height: 100vh  ;
+  padding-bottom: 10px;
+  overflow: hidden;
+
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.messages
+{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width:"none";
+}
+
