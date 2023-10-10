@@ -18,7 +18,7 @@ import { prisma } from "./lib.js";
 
 dotenv.config()
 const corsConfig = {
-    origin: 'https://talkative12.netlify.app', // Set the client-side domain here
+    origin: true, // Set the client-side domain here
     credentials: true,
   };
   
