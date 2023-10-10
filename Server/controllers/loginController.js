@@ -38,11 +38,16 @@ export const loginUser=async(req,res)=>
     res.cookie('token', generateToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production', // Set to true in production
+          sameSite: 'None',
+        domain: 'talkative12.netlify.app/'
     });
     
     res.cookie('refreshToken', generateRefreshToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
+          sameSite: 'None',
+        domain: 'talkative12.netlify.app/'
+       
    
     });
   
