@@ -39,7 +39,6 @@ export const loginUser=async(req,res)=>
        httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       domain: 'netlify.app', // Remove the protocol and path
-      path: '/',
       sameSite: 'None', // Allow cross-site access
     });
     
@@ -47,7 +46,6 @@ export const loginUser=async(req,res)=>
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       domain: 'netlify.app', // Remove the protocol and path
-      path: '/',
       sameSite: 'None', // Allow cross-site access
    
     });
