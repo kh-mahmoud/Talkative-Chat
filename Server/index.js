@@ -18,7 +18,7 @@ import { prisma } from "./lib.js";
 
 dotenv.config()
 const corsConfig = {
-    origin: true, // Set the client-side domain here
+    origin: true,
     credentials: true,
   };
   
