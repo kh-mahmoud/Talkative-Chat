@@ -18,7 +18,7 @@ import { prisma } from "./lib.js";
 
 dotenv.config()
 const corsConfig = {
-    origin: true,
+  origin: ['https://talkattive-chat.onrender.com', 'https://talkattive-chat-zdji.onrender.com'],
     credentials: true,
   };
   
