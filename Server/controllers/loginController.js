@@ -38,14 +38,14 @@ export const loginUser=async(req,res)=>
     res.cookie('token', generateToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production', // Set to true in production
-              domain:'talkattive-chat-zdji.onrender.com'
+              domain:'.onrender.com'
 
     });
     
     res.cookie('refreshToken', generateRefreshToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-       domain:'talkattive-chat-zdji.onrender.com'
+       domain:'.onrender.com'
        
    
     });
