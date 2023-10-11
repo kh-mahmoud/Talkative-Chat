@@ -82,7 +82,7 @@ const httpServer = http.createServer(app);
 const io=new Server(httpServer, {
   pingTimeout:60000,
   cors: {
-    origin: process.env.NODE_ENV === 'production'?"https://talkative12.netlify.app":"http://localhost:5173"
+    origin: true
   }
 })
 
