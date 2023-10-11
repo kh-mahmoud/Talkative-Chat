@@ -48,11 +48,13 @@ export const registerUser=async(req,res)=>
          res.cookie('token', generateToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Set to true in production
+            sameSite:'None'
           });
 
           res.cookie('refreshToken', generateRefreshToken({id:user.id,name:user.name,pic:user.pic,email:user.email}), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Set to true in production
+            sameSite:'None'
           });
         
           res.send("good")
