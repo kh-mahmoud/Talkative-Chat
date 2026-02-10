@@ -15,7 +15,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@react-google-maps/api": "^2.19.2",
-    "axios": "^1.4.0",
+    "axios": "^1.13.5",
     "blurhash": "^2.0.5",
     "framer-motion": "^10.15.0",
     "google-map-react": "^2.2.1",
